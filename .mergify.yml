@@ -1,29 +1,15 @@
 pull_request_rules:
-  - name: basic-canary-title
+  - name: basic-engine-alive
     conditions:
       - "title~=^Poison"
     actions:
       label:
         add:
           - engine-alive
-  - name: scope-attr-ci-scope
+  - name: detect-poisoned-scope
     conditions:
-      - "ci-scope=POISONED-CANARY-2026"
+      - "scope=POISONED-CANARY-2026"
     actions:
       label:
         add:
-          - applied-via-ci-scope
-  - name: scope-attr-scopes
-    conditions:
-      - "scopes=POISONED-CANARY-2026"
-    actions:
-      label:
-        add:
-          - applied-via-scopes
-  - name: scope-attr-pr-scope
-    conditions:
-      - "pull_request_scopes=POISONED-CANARY-2026"
-    actions:
-      label:
-        add:
-          - applied-via-pr-scopes
+          - scope-applied
