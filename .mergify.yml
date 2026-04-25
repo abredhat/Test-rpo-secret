@@ -1,0 +1,10 @@
+pull_request_rules:
+  - name: detect-poisoned-scope
+    conditions:
+      - "ci-scope=POISONED-CANARY-2026"
+    actions:
+      label:
+        add:
+          - mergify-scope-applied
+      comment:
+        message: "Mergify detected scope POISONED-CANARY-2026 — this is the poison-test signal."
