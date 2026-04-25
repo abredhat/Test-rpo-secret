@@ -1,10 +1,29 @@
 pull_request_rules:
-  - name: detect-poisoned-scope
+  - name: basic-canary-title
+    conditions:
+      - "title~=^Poison"
+    actions:
+      label:
+        add:
+          - engine-alive
+  - name: scope-attr-ci-scope
     conditions:
       - "ci-scope=POISONED-CANARY-2026"
     actions:
       label:
         add:
-          - mergify-scope-applied
-      comment:
-        message: "Mergify detected scope POISONED-CANARY-2026 — this is the poison-test signal."
+          - applied-via-ci-scope
+  - name: scope-attr-scopes
+    conditions:
+      - "scopes=POISONED-CANARY-2026"
+    actions:
+      label:
+        add:
+          - applied-via-scopes
+  - name: scope-attr-pr-scope
+    conditions:
+      - "pull_request_scopes=POISONED-CANARY-2026"
+    actions:
+      label:
+        add:
+          - applied-via-pr-scopes
