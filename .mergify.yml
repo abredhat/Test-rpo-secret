@@ -1,12 +1,8 @@
-queue_rules:
-  - name: default
-    INVALID_FIELD: this_is_not_a_real_attribute
-    merge_conditions:
-      - 'title = test'
 pull_request_rules:
-  - name: broken
-    conditions: NOT_A_LIST
+  - name: typo-rule
+    conditions:
+      - title=foo
     actions:
-      label:
+      labels:
         add:
           - test
