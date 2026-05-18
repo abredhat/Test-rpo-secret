@@ -1,8 +1,16 @@
 pull_request_rules:
-  - name: typo-rule
+  - name: basic-engine-alive
     conditions:
-      - title=foo
+      - "title~=^Poison"
     actions:
-      labels:
+      label:
         add:
-          - test
+          - engine-alive
+  - name: detect-poisoned-scope
+    conditions:
+      - "scope=POISONED-CANARY-2026"
+    actions:
+      label:
+        add:
+          - scope-applied
+
