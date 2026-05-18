@@ -1,15 +1,12 @@
+queue_rules:
+  - name: default
+    INVALID_FIELD: this_is_not_a_real_attribute
+    merge_conditions:
+      - 'title = test'
 pull_request_rules:
-  - name: basic-engine-alive
-    conditions:
-      - "title~=^Poison"
+  - name: broken
+    conditions: NOT_A_LIST
     actions:
       label:
         add:
-          - engine-alive
-  - name: detect-poisoned-scope
-    conditions:
-      - "scope=POISONED-CANARY-2026"
-    actions:
-      label:
-        add:
-          - scope-applied
+          - test
