@@ -1,16 +1,13 @@
+queue_rules:
+  - name: default
+    queue_conditions: []
+    merge_conditions: []
+    merge_method: squash
 pull_request_rules:
-  - name: basic-engine-alive
+  - name: q
     conditions:
-      - "title~=^Poison"
+      - base=main
+      - label=go
     actions:
-      label:
-        add:
-          - engine-alive
-  - name: detect-poisoned-scope
-    conditions:
-      - "scope=POISONED-CANARY-2026"
-    actions:
-      label:
-        add:
-          - scope-applied
-
+      queue:
+        name: default
