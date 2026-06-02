@@ -1,9 +1,1 @@
-pull_request_rules:
-  - name: r
-    conditions:
-      - base=main
-      - label=show
-    actions:
-      comment:
-        message: |
-          OUT[ {{ body | get_section('## p') }} ]OUT
+pull_request_rules: []
