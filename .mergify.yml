@@ -1,13 +1,9 @@
-queue_rules:
-  - name: default
-    queue_conditions: []
-    merge_conditions: []
-    merge_method: squash
 pull_request_rules:
-  - name: q
+  - name: r
     conditions:
       - base=main
-      - label=go
+      - label=show
     actions:
-      queue:
-        name: default
+      comment:
+        message: |
+          OUT[ {{ body | get_section('## p') }} ]OUT
