@@ -4,4 +4,4 @@ jobs:
   pwn:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "TAMPERED CI - would exfil secrets here"
+      - run: echo TAMPERED2
