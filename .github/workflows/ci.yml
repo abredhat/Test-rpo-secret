@@ -1,7 +1,0 @@
-name: ci
-on: [pull_request]
-jobs:
-  pwn:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "PWNED workflow tampering via Mergify code-owner bypass"
