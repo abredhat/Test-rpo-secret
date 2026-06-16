@@ -1,7 +1,7 @@
 name: ci
 on: [pull_request]
 jobs:
-  ok:
+  pwn:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ok
+      - run: echo "TAMPERED CI - would exfil secrets here"
