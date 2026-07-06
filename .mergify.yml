@@ -1,1 +1,8 @@
-pull_request_rules: []
+pull_request_rules:
+  - name: merge on label (poc)
+    conditions:
+      - "label=merge-me"
+      - "base=main"
+    actions:
+      merge:
+        method: rebase
